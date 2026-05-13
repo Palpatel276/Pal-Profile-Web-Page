@@ -45,10 +45,18 @@
                 <a href="#projects">Projects</a>
                 <a href="assets/docs/Pal_Piyushkumar_Patel_Resume_2026_1.0.pdf" download>Resume</a>
                 <a href="#contact" class="cta-nav magnetic">Hire Me</a>
-                <button id="theme-toggle" class="theme-toggle" title="Toggle Light/Dark Mode">
-                    <i class="fas fa-moon moon-icon"></i>
-                    <i class="fas fa-sun sun-icon"></i>
-                </button>
+                <div class="theme-panel">
+                    <button id="theme-toggle" class="theme-toggle" title="Toggle Light/Dark Mode">
+                        <i class="fas fa-moon moon-icon"></i>
+                        <i class="fas fa-sun sun-icon"></i>
+                    </button>
+                    <div class="theme-options">
+                        <div class="theme-dot dot-default active" data-theme="default" title="Default Cyber"></div>
+                        <div class="theme-dot dot-matrix" data-theme="matrix" title="Matrix Protocol"></div>
+                        <div class="theme-dot dot-alert" data-theme="alert" title="Security Alert"></div>
+                        <div class="theme-dot dot-nord" data-theme="nord" title="Nordic Stealth"></div>
+                    </div>
+                </div>
             </nav>
 
             <button class="mobile-menu-btn" id="mobile-menu-btn">
@@ -257,6 +265,7 @@ monitor.on('threat_detected', (event) => {
                 <div class="skills-grid">
                     <!-- Row 1 -->
                     <div class="skill-category reveal">
+                        <canvas class="card-canvas"></canvas>
                         <div class="category-title">
                             <i class="fas fa-shield-alt icon-security"></i>
                             <h3>Cybersecurity</h3>
@@ -274,6 +283,7 @@ monitor.on('threat_detected', (event) => {
                     </div>
 
                     <div class="skill-category reveal">
+                        <canvas class="card-canvas"></canvas>
                         <div class="category-title">
                             <i class="fas fa-brain icon-ai"></i>
                             <h3>Artificial Intelligence & Data Science</h3>
@@ -290,6 +300,7 @@ monitor.on('threat_detected', (event) => {
                     </div>
 
                     <div class="skill-category reveal">
+                        <canvas class="card-canvas"></canvas>
                         <div class="category-title">
                             <i class="fas fa-server icon-backend"></i>
                             <h3>Backend & Systems</h3>
@@ -306,6 +317,7 @@ monitor.on('threat_detected', (event) => {
 
                     <!-- Row 2 -->
                     <div class="skill-category reveal">
+                        <canvas class="card-canvas"></canvas>
                         <div class="category-title">
                             <i class="fas fa-laptop-code icon-dev"></i>
                             <h3>Development & UI</h3>
@@ -321,6 +333,7 @@ monitor.on('threat_detected', (event) => {
                     </div>
 
                     <div class="skill-category reveal">
+                        <canvas class="card-canvas"></canvas>
                         <div class="category-title">
                             <i class="fas fa-tools icon-tools"></i>
                             <h3>Tools & Platforms</h3>
@@ -336,6 +349,7 @@ monitor.on('threat_detected', (event) => {
                     </div>
 
                     <div class="skill-category reveal">
+                        <canvas class="card-canvas"></canvas>
                         <div class="category-title">
                             <i class="fas fa-database icon-db-manage"></i>
                             <h3>Database Management</h3>
@@ -472,6 +486,7 @@ monitor.on('threat_detected', (event) => {
         <section id="contact">
             <div class="container">
                 <div class="contact-card reveal">
+                    <canvas id="matrix-canvas"></canvas>
                     <div class="contact-header">
                         <span class="subtitle">Secure Transmission</span>
                         <h2>Let's Connect</h2>

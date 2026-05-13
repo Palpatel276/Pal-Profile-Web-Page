@@ -159,6 +159,119 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // 4. Multi-Theme Presets
+    const themeDots = document.querySelectorAll('.theme-dot');
+    const applyThemePreset = (theme) => {
+        // Remove all theme classes
+        body.classList.remove('theme-matrix', 'theme-alert', 'theme-nord');
+        themeDots.forEach(dot => dot.classList.remove('active'));
+
+        if (theme !== 'default') {
+            body.classList.add(`theme-${theme}`);
+        }
+        
+        const activeDot = document.querySelector(`.dot-${theme}`);
+        if (activeDot) activeDot.classList.add('active');
+        
+        localStorage.setItem('theme-preset', theme);
+    };
+
+    themeDots.forEach(dot => {
+        dot.addEventListener('click', () => {
+            const theme = dot.getAttribute('data-theme');
+            applyThemePreset(theme);
+        });
+    });
+
+    // Load saved preset
+    const savedPreset = localStorage.getItem('theme-preset');
+    if (savedPreset) {
+        applyThemePreset(savedPreset);
+    }
+
+    // Matrix Rain Effect
+    const canvas = document.getElementById('matrix-canvas');
+    if (canvas) {
+        const ctx = canvas.getContext('2d');
+        let width, height, columns;
+        const fontSize = 16;
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$@#%&*';
+        let drops = [];
+
+        const initCanvas = () => {
+            width = canvas.offsetWidth;
+            height = canvas.offsetHeight;
+            canvas.width = width;
+            canvas.height = height;
+            columns = Math.floor(width / fontSize);
+            drops = new Array(columns).fill(1);
+        };
+
+        const drawMatrix = () => {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, width, height);
+
+            // Use the current accent color or a theme-specific color
+            ctx.fillStyle = getComputedStyle(document.body).getPropertyValue('--accent-blue').trim() || '#00d2ff';
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = characters.charAt(Math.floor(Math.random() * characters.length));
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        };
+
+        initCanvas();
+        window.addEventListener('resize', initCanvas);
+        setInterval(drawMatrix, 50);
+    }
+
+    // Card Canvas Effect (Binary Drift)
+    const cardCanvases = document.querySelectorAll('.card-canvas');
+    cardCanvases.forEach(canvas => {
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        const fontSize = 10;
+        const characters = '01';
+        let drops = [];
+
+        const initCardCanvas = () => {
+            width = canvas.offsetWidth;
+            height = canvas.offsetHeight;
+            canvas.width = width;
+            canvas.height = height;
+            const columns = Math.floor(width / fontSize);
+            drops = new Array(columns).fill(1);
+        };
+
+        const drawCardBinary = () => {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, width, height);
+
+            ctx.fillStyle = getComputedStyle(document.body).getPropertyValue('--accent-blue').trim() || '#00d2ff';
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = characters.charAt(Math.floor(Math.random() * characters.length));
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > height && Math.random() > 0.985) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        };
+
+        initCardCanvas();
+        window.addEventListener('resize', initCardCanvas);
+        setInterval(drawCardBinary, 100);
+    });
+
     // Parallax Effect for Orbs
     window.addEventListener('mousemove', (e) => {
         const x = e.clientX / window.innerWidth;
