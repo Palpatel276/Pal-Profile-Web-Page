@@ -1650,16 +1650,19 @@ body.light-mode .orb {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 100%;
+        width: 80%; /* Partial width drawer */
+        max-width: 320px;
         height: 100vh;
-        background: var(--glass-bg);
-        backdrop-filter: blur(30px);
+        background: var(--bg-secondary);
+        border-left: 1px solid var(--glass-border);
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 3rem;
-        transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        gap: 1.5rem; /* Reduced gap to fit screen */
+        transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 1000;
+        padding: 2rem;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
     }
 
     .nav-links.active {
@@ -1667,17 +1670,17 @@ body.light-mode .orb {
     }
 
     .nav-links a {
-        font-size: 1.2rem;
+        font-size: 1.1rem; /* Slightly smaller to fit */
         font-weight: 700;
     }
 
     .cta-nav {
-        padding: 1rem 3rem !important;
-        font-size: 1rem !important;
+        padding: 0.8rem 2.5rem !important;
+        font-size: 0.9rem !important;
     }
 
     .theme-panel {
-        margin-top: 2rem;
+        margin-top: 1rem; /* Reduced margin */
     }
 
     .theme-options {
@@ -1693,6 +1696,25 @@ body.light-mode .orb {
 
     .mobile-menu-btn {
         display: flex;
+    }
+
+    .nav-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(5px);
+        z-index: 999;
+        display: none;
+        opacity: 0;
+        transition: 0.3s ease;
+    }
+
+    .nav-overlay.active {
+        display: block;
+        opacity: 1;
     }
 
     .about-stats {
