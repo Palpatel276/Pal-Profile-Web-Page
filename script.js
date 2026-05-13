@@ -159,35 +159,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 4. Multi-Theme Presets
-    const themeDots = document.querySelectorAll('.theme-dot');
-    const applyThemePreset = (theme) => {
-        // Remove all theme classes
-        body.classList.remove('theme-matrix', 'theme-alert', 'theme-nord');
-        themeDots.forEach(dot => dot.classList.remove('active'));
-
-        if (theme !== 'default') {
-            body.classList.add(`theme-${theme}`);
-        }
-        
-        const activeDot = document.querySelector(`.dot-${theme}`);
-        if (activeDot) activeDot.classList.add('active');
-        
-        localStorage.setItem('theme-preset', theme);
-    };
-
-    themeDots.forEach(dot => {
-        dot.addEventListener('click', () => {
-            const theme = dot.getAttribute('data-theme');
-            applyThemePreset(theme);
-        });
-    });
-
-    // Load saved preset
-    const savedPreset = localStorage.getItem('theme-preset');
-    if (savedPreset) {
-        applyThemePreset(savedPreset);
-    }
 
     // Matrix Rain Effect
     const canvas = document.getElementById('matrix-canvas');
@@ -208,7 +179,10 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const drawMatrix = () => {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+            if (document.body.classList.contains('light-mode')) {
+                ctx.fillStyle = 'rgba(248, 250, 252, 0.1)';
+            }
             ctx.fillRect(0, 0, width, height);
 
             // Use the current accent color or a theme-specific color
@@ -235,6 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cardCanvases = document.querySelectorAll('.card-canvas');
     cardCanvases.forEach(canvas => {
         const ctx = canvas.getContext('2d');
+        const parentCard = canvas.closest('.skill-category');
         let width, height;
         const fontSize = 10;
         const characters = '01';
@@ -250,17 +225,26 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const drawCardBinary = () => {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            // Very subtle fade for the trails
+            ctx.fillStyle = 'rgba(10, 10, 10, 0.1)'; 
+            if (document.body.classList.contains('light-mode')) {
+                ctx.fillStyle = 'rgba(248, 250, 252, 0.1)';
+            }
             ctx.fillRect(0, 0, width, height);
 
-            ctx.fillStyle = getComputedStyle(document.body).getPropertyValue('--accent-blue').trim() || '#00d2ff';
+            // Get color from the heading icon of this specific card
+            const icon = parentCard.querySelector('i');
+            const accentColor = icon ? getComputedStyle(icon).color : '#00d2ff';
+            
+            ctx.fillStyle = accentColor;
             ctx.font = fontSize + 'px monospace';
+            ctx.textAlign = 'center';
 
             for (let i = 0; i < drops.length; i++) {
                 const text = characters.charAt(Math.floor(Math.random() * characters.length));
-                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                ctx.fillText(text, i * fontSize + fontSize/2, drops[i] * fontSize);
 
-                if (drops[i] * fontSize > height && Math.random() > 0.985) {
+                if (drops[i] * fontSize > height && Math.random() > 0.98) {
                     drops[i] = 0;
                 }
                 drops[i]++;
@@ -480,7 +464,7 @@ document.addEventListener('DOMContentLoaded', () => {
         for (const step of steps) {
             const line = document.createElement('p');
             line.className = 'terminal-line';
-            line.style.color = '#00d2ff';
+            line.style.color = 'var(--accent-blue)';
             line.textContent = step;
             terminalBody.insertBefore(line, document.querySelector('.terminal-input-line'));
             await new Promise(r => setTimeout(r, 800));

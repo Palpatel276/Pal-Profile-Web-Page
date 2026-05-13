@@ -50,12 +50,6 @@
                         <i class="fas fa-moon moon-icon"></i>
                         <i class="fas fa-sun sun-icon"></i>
                     </button>
-                    <div class="theme-options">
-                        <div class="theme-dot dot-default active" data-theme="default" title="Default Cyber"></div>
-                        <div class="theme-dot dot-matrix" data-theme="matrix" title="Matrix Protocol"></div>
-                        <div class="theme-dot dot-alert" data-theme="alert" title="Security Alert"></div>
-                        <div class="theme-dot dot-nord" data-theme="nord" title="Nordic Stealth"></div>
-                    </div>
                 </div>
             </nav>
 
@@ -263,7 +257,7 @@ monitor.on('threat_detected', (event) => {
                 </div>
                 <div class="skills-grid">
                     <!-- Row 1 -->
-                    <div class="skill-category reveal">
+                    <div class="skill-category reveal cat-security">
                         <canvas class="card-canvas"></canvas>
                         <div class="category-title">
                             <i class="fas fa-shield-alt icon-security"></i>
@@ -281,7 +275,7 @@ monitor.on('threat_detected', (event) => {
                         </div>
                     </div>
 
-                    <div class="skill-category reveal">
+                    <div class="skill-category reveal cat-ai">
                         <canvas class="card-canvas"></canvas>
                         <div class="category-title">
                             <i class="fas fa-brain icon-ai"></i>
@@ -298,7 +292,7 @@ monitor.on('threat_detected', (event) => {
                         </div>
                     </div>
 
-                    <div class="skill-category reveal">
+                    <div class="skill-category reveal cat-backend">
                         <canvas class="card-canvas"></canvas>
                         <div class="category-title">
                             <i class="fas fa-server icon-backend"></i>
@@ -315,7 +309,7 @@ monitor.on('threat_detected', (event) => {
                     </div>
 
                     <!-- Row 2 -->
-                    <div class="skill-category reveal">
+                    <div class="skill-category reveal cat-dev">
                         <canvas class="card-canvas"></canvas>
                         <div class="category-title">
                             <i class="fas fa-laptop-code icon-dev"></i>
@@ -331,7 +325,7 @@ monitor.on('threat_detected', (event) => {
                         </div>
                     </div>
 
-                    <div class="skill-category reveal">
+                    <div class="skill-category reveal cat-tools">
                         <canvas class="card-canvas"></canvas>
                         <div class="category-title">
                             <i class="fas fa-tools icon-tools"></i>
@@ -347,7 +341,7 @@ monitor.on('threat_detected', (event) => {
                         </div>
                     </div>
 
-                    <div class="skill-category reveal">
+                    <div class="skill-category reveal cat-db">
                         <canvas class="card-canvas"></canvas>
                         <div class="category-title">
                             <i class="fas fa-database icon-db-manage"></i>
@@ -360,7 +354,8 @@ monitor.on('threat_detected', (event) => {
                     </div>
 
                     <!-- Row 3 -->
-                    <div class="skill-category reveal">
+                    <div class="skill-category reveal cat-testing">
+                        <canvas class="card-canvas"></canvas>
                         <div class="category-title">
                             <i class="fas fa-vial icon-testing"></i>
                             <h3>API Documentation & Testing</h3>
@@ -500,7 +495,7 @@ monitor.on('threat_detected', (event) => {
                             </div>
                         </a>
 
-                        <a href="tel:+918805132884" class="contact-method-card magnetic reveal" style="--icon-color: #00d2ff;">
+                        <a href="tel:+918805132884" class="contact-method-card magnetic reveal" style="--icon-color: var(--accent-blue);">
                             <div class="method-icon"><i class="fas fa-phone"></i></div>
                             <div class="method-info">
                                 <span>Phone</span>
