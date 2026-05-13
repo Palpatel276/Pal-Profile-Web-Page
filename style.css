@@ -124,8 +124,13 @@ body {
 #main-header.scrolled {
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
-    height: 70px;
+    height: 60px; /* Reduced more for a distinct look */
     border-bottom: 1px solid var(--glass-border);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+#main-header.scrolled .logo {
+    font-size: 1.5rem;
 }
 
 .nav-container {
