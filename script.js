@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Custom Cursor
     const cursor = document.querySelector('.custom-cursor');
     const follower = document.querySelector('.cursor-follower');
-    const links = document.querySelectorAll('a, button, .contact-icon, .btn-project');
+    const links = document.querySelectorAll('a, button, .contact-icon, .btn-project, .project-card, .focus-mini-card, .direct-visit');
 
     document.addEventListener('mousemove', (e) => {
         cursor.style.left = e.clientX + 'px';
@@ -121,16 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Parallax effect for hero avatar
-    const heroVisual = document.querySelector('.hero-visual');
-    if (heroVisual) {
-        window.addEventListener('mousemove', (e) => {
-            const moveX = (e.clientX - window.innerWidth / 2) / 50;
-            const moveY = (e.clientY - window.innerHeight / 2) / 50;
-            heroVisual.style.transform = `translate(${moveX}px, ${moveY}px)`;
-        });
-    }
-
     // Theme Toggle & System Preference
     const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
@@ -158,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (themeToggle) {
         themeToggle.addEventListener('click', () => {
             const isCurrentlyLight = body.classList.contains('light-mode');
-            setTheme(isCurrentlyLight); // If light, set to dark (isCurrentlyLight=true means setTheme(true) which is dark)
+            setTheme(isCurrentlyLight); // If light, set to dark
         });
     }
 
@@ -181,6 +171,8 @@ document.addEventListener('DOMContentLoaded', () => {
             orb.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
         });
     });
+
+    // Mobile Menu
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
     
@@ -190,7 +182,6 @@ document.addEventListener('DOMContentLoaded', () => {
             navLinks.classList.toggle('active');
         });
 
-        // Close menu when a link is clicked
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenuBtn.classList.remove('active');
@@ -198,7 +189,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Close menu when clicking outside
         document.addEventListener('click', (e) => {
             if (navLinks && mobileMenuBtn && !navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target) && navLinks.classList.contains('active')) {
                 mobileMenuBtn.classList.remove('active');
@@ -233,6 +223,100 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         setInterval(addThreat, 3000);
     }
+
+    // Project Modal Logic
+    const projectData = {
+        "TwishhSync": {
+            subtitle: "Enterprise Attendance System",
+            tech: ["React", "Next.js", "Tailwind CSS", "PostgreSQL", "Prisma"],
+            details: [
+                "Developed a zero-trust attendance management system with real-time location verification.",
+                "Built scalable backend APIs using Next.js Serverless Functions.",
+                "Implemented secure authentication and role-based access control.",
+                "Optimized database queries with Prisma ORM for high-performance data retrieval."
+            ],
+            link: "https://attendance-system-gamma-ecru.vercel.app/"
+        },
+        "D.K. Techno": {
+            subtitle: "Industrial Manufacturing Portfolio",
+            tech: ["Next.js", "Vite", "Vanilla CSS", "Responsive Design"],
+            details: [
+                "Designed a high-performance industrial showcase website for precision manufacturing.",
+                "Implemented custom CSS animations for industrial-themed UI components.",
+                "Integrated contact forms and WhatsApp communication for client leads.",
+                "Optimized asset loading for sub-second page performance."
+            ],
+            link: "https://www.dktechnoindustries.com/"
+        },
+        "Wazuh SIEM": {
+            subtitle: "Security Information & Event Management",
+            tech: ["Ubuntu", "Wazuh", "ElasticSearch", "Kibana", "Logstash"],
+            details: [
+                "Deployed and configured Wazuh SIEM for enterprise-wide security monitoring.",
+                "Customized detection rules to identify specific attack patterns like SQLi and Brute Force.",
+                "Integrated threat intelligence feeds for proactive threat hunting.",
+                "Built automated response playbooks for incident mitigation."
+            ],
+            link: "#"
+        },
+        "Driver Assistance": {
+            subtitle: "AI Computer Vision System",
+            tech: ["Python", "OpenCV", "TensorFlow", "NumPy"],
+            details: [
+                "Engineered a real-time object detection system for driver safety alerting.",
+                "Implemented lane detection and collision warning algorithms.",
+                "Optimized model inference for edge device deployment.",
+                "Built a desktop interface for live camera stream visualization."
+            ],
+            link: "#"
+        },
+        "OSINT": {
+            subtitle: "Open Source Intelligence Tooling",
+            tech: ["Python", "BeautifulSoup", "API Integration", "Data Analysis"],
+            details: [
+                "Automated digital footprint gathering from public data sources.",
+                "Implemented domain and email correlation for target profiling.",
+                "Built a visualization dashboard for mapped attack surfaces.",
+                "Integrated automated reporting for security audits."
+            ],
+            link: "#"
+        }
+    };
+
+    const modal = document.getElementById('project-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalSubtitle = document.getElementById('modal-subtitle');
+    const modalTech = document.getElementById('modal-tech');
+    const modalDetails = document.getElementById('modal-details');
+    const closeModal = document.getElementById('modal-close');
+    const modalOverlay = document.querySelector('.modal-overlay');
+
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.addEventListener('click', (e) => {
+            // Check if the click was on the direct-visit link or its children
+            if (e.target.closest('.direct-visit')) return;
+
+            const projectId = card.getAttribute('data-project');
+            const data = projectData[projectId];
+            
+            if (data) {
+                modalTitle.textContent = projectId;
+                modalSubtitle.textContent = data.subtitle;
+                modalTech.innerHTML = data.tech.map(t => `<span>${t}</span>`).join('');
+                modalDetails.innerHTML = data.details.map(d => `<li>${d}</li>`).join('');
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    });
+
+    const closeProjectModal = () => {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    };
+
+    if (closeModal) closeModal.addEventListener('click', closeProjectModal);
+    if (modalOverlay) modalOverlay.addEventListener('click', closeProjectModal);
 
     // OSINT Simulator in Terminal
     const terminalBody = document.querySelector('.terminal-body');
@@ -284,4 +368,6 @@ document.addEventListener('DOMContentLoaded', () => {
             osintInput.focus();
         }
     }
+
 });
+

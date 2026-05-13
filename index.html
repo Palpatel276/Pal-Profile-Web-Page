@@ -14,15 +14,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="Topbar_logo.png">
+    <link rel="icon" type="image/png" href="assets/images/Topbar_logo.png">
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
+<body>
     <!-- Aurora Background Orbs -->
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
     <div class="orb orb-3"></div>
+    
+    <!-- Moving Mesh Grid -->
+    <div class="bg-grid"></div>
 
     <!-- State-of-the-art UI Elements -->
     <div class="scroll-progress"></div>
@@ -39,7 +43,7 @@
                 <a href="#experience">Experience</a>
                 <a href="#skills">Skills</a>
                 <a href="#projects">Projects</a>
-                <a href="Pal_Piyushkumar_Patel_Resume_2026_1.0.pdf" download>Resume</a>
+                <a href="assets/docs/Pal_Piyushkumar_Patel_Resume_2026_1.0.pdf" download>Resume</a>
                 <a href="#contact" class="cta-nav magnetic">Hire Me</a>
                 <button id="theme-toggle" class="theme-toggle" title="Toggle Light/Dark Mode">
                     <i class="fas fa-moon moon-icon"></i>
@@ -54,6 +58,7 @@
             </button>
         </div>
     </header>
+
 
     <main>
         <!-- Hero Section -->
@@ -83,13 +88,13 @@
                     <p class="reveal">I am a <strong>Cybersecurity Specialist</strong> dedicated to securing digital environments through SOC operations and SIEM management. Beyond my professional work, I am an avid <strong>Full Stack Developer</strong>—a hobby that allows me to bridge the gap between building intelligent applications and protecting them from the ground up.</p>
                     <div class="hero-actions reveal">
                         <a href="#projects" class="btn-primary magnetic">View Projects</a>
-                        <a href="Pal_Piyushkumar_Patel_Resume_2026_1.0.pdf" download class="btn-secondary magnetic"><i class="fas fa-file-pdf"></i> Resume</a>
+                        <a href="assets/docs/Pal_Piyushkumar_Patel_Resume_2026_1.0.pdf" download class="btn-secondary magnetic"><i class="fas fa-file-pdf"></i> Resume</a>
                         <a href="#contact" class="btn-secondary magnetic">Contact Me</a>
                     </div>
                 </div>
                 <div class="hero-image reveal">
                     <div class="image-wrapper">
-                        <img src="pal_avatar.png" alt="Pal Piyushkumar Patel">
+                        <img src="assets/images/pal_avatar.png" alt="Pal Piyushkumar Patel">
                         <div class="image-glow"></div>
                     </div>
                 </div>
@@ -101,46 +106,80 @@
             <div class="container">
                 <div class="section-header">
                     <span class="subtitle">My Story</span>
-                    <h2>About Me</h2>
-                </div>
-                <div class="about-grid">
+                <div class="about-top">
                     <div class="about-text">
-                        <p class="reveal">I am a <strong>Cybersecurity Specialist</strong> dedicated to securing digital environments through SOC operations and SIEM management. Beyond my professional work, I am an avid <strong>Full Stack Developer</strong>—a hobby that allows me to bridge the gap between building intelligent applications and protecting them from the ground up.</p>
-                        
-                        <div class="terminal-window reveal">
-                            <div class="terminal-header">
-                                <div class="terminal-dot red"></div>
-                                <div class="terminal-dot yellow"></div>
-                                <div class="terminal-dot green"></div>
-                                <span class="terminal-title">pal_piyushkumar@cyber: ~</span>
+                        <div class="section-header" style="text-align: left; margin-bottom: 1.5rem;">
+                            <span class="subtitle reveal">Identity Profile</span>
+                            <h2 class="reveal">About Me</h2>
+                        </div>
+                        <p class="reveal" style="margin-bottom: 2rem; max-width: 100%;">I am a <strong>Cybersecurity Specialist</strong> dedicated to securing digital environments through SOC operations and SIEM management. Beyond my professional work, I am an avid <strong>Full Stack Developer</strong>—a hobby that allows me to bridge the gap between building intelligent applications and protecting them from the ground up.</p>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-card reveal">
+                            <h3 style="color: var(--accent-blue);">Education</h3>
+                            <p>B.Tech Computer Science and IT</p>
+                            <p style="color: var(--accent-blue); font-weight: 800; margin: 5px 0;">(Cybersecurity)</p>
+                            <p style="font-size: 0.85rem; opacity: 0.8; line-height: 1.4;">Symbiosis Skills and Professional University</p>
+                            <p style="font-size: 0.85rem; font-weight: 700; margin-top: 8px;">2022 — 2026</p>
+                        </div>
+                        <div class="focus-mini-grid reveal">
+                            <div class="focus-mini-card" style="--accent-color: var(--accent-blue);">
+                                <span class="focus-title">SOC</span>
+                                <span class="focus-desc">Threat Detection</span>
                             </div>
-                            <div class="terminal-body" id="terminal-text">
-                                <div class="terminal-line"><span class="prompt">></span> <span class="command">init_profile.sh</span></div>
-                                <div class="terminal-line">Loading system modules... [OK]</div>
-                                <div class="terminal-line">Establishing secure connection... [SECURE]</div>
-                                <div class="terminal-line">Ready for interaction.</div>
-                                <div class="terminal-line"><span class="prompt">></span> <span class="typing">whoami</span></div>
-                                <div class="terminal-line info">Professional focus: SOC Operations & Detection Engineering. Passionate Hobbyist: Full Stack AI Development. Combining the two to create secure-by-design innovation.</div>
+                            <div class="focus-mini-card" style="--accent-color: var(--accent-green);">
+                                <span class="focus-title">SIEM</span>
+                                <span class="focus-desc">Wazuh / Splunk</span>
+                            </div>
+                            <div class="focus-mini-card" style="--accent-color: var(--accent-orange);">
+                                <span class="focus-title">Backend</span>
+                                <span class="focus-desc">Security Dev</span>
                             </div>
                         </div>
                     </div>
-                    <div class="about-stats">
-                        <div class="stat-card">
-                            <h3>SOC</h3>
-                            <p>Threat Detection</p>
+                </div>
+
+                <div class="about-tech-showcase">
+                    <div class="terminal-window reveal">
+                        <div class="terminal-header">
+                            <div class="terminal-dot red"></div>
+                            <div class="terminal-dot yellow"></div>
+                            <div class="terminal-dot green"></div>
+                            <span class="terminal-title">pal_piyushkumar@cyber: ~</span>
                         </div>
-                        <div class="stat-card">
-                            <h3>SIEM</h3>
-                            <p>Wazuh / Splunk</p>
+                        <div class="terminal-body">
+                            <div class="terminal-line"><span class="prompt">></span> <span class="command">init_profile.sh</span></div>
+                            <div class="terminal-line">Loading system modules... [OK]</div>
+                            <div class="terminal-line">Establishing secure connection... [SECURE]</div>
+                            <div class="terminal-line">Ready for interaction.</div>
+                            <div class="terminal-line"><span class="prompt">></span> <span class="typing">whoami</span></div>
+                            <div class="terminal-line info">Professional focus: SOC Operations & Detection Engineering. Passionate Hobbyist: Full Stack AI Development. Combining the two to create secure-by-design innovation.</div>
                         </div>
-                        <div class="stat-card">
-                            <h3>Backend</h3>
-                            <p>Security Dev</p>
+                    </div>
+
+                    <div class="code-hologram reveal">
+                        <div class="hologram-header">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>SECURITY_KERNEL_SNIPPET.log</span>
+                        </div>
+                        <div class="hologram-body">
+                            <pre><code class="language-javascript" id="rotating-code">// Initializing Threat Detection Engine...
+const monitor = new SecurityMonitor({
+    source: 'SOC_OPERATIONS',
+    engine: 'SIEM_INTEGRATION',
+    alerts: true
+});
+
+monitor.on('threat_detected', (event) => {
+    console.log(`[ALERT] ${event.type} detected at ${event.ip}`);
+    monitor.block(event.ip);
+});</code></pre>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
 
         <!-- Experience Section -->
         <section id="experience">
@@ -216,62 +255,106 @@
                     <h2>Technical Stack</h2>
                 </div>
                 <div class="skills-grid">
+                    <!-- Row 1 -->
                     <div class="skill-category reveal">
                         <div class="category-title">
-                            <i class="fas fa-shield-alt"></i>
+                            <i class="fas fa-shield-alt icon-security"></i>
                             <h3>Cybersecurity</h3>
                         </div>
                         <div class="skill-tags">
-                            <span><i class="fas fa-search"></i> Splunk</span>
-                            <span><i class="fas fa-eye"></i> Wazuh</span>
-                            <span><i class="fas fa-user-secret"></i> Burp Suite</span>
-                            <span><i class="fas fa-microscope"></i> Digital Forensics</span>
-                            <span><i class="fas fa-users-cog"></i> Active Directory</span>
-                            <span><i class="fas fa-project-diagram"></i> SOC Operations</span>
-                            <span><i class="fas fa-globe"></i> OSINT</span>
-                            <span><i class="fas fa-network-wired"></i> Network Security</span>
+                            <span><i class="fas fa-search icon-splunk"></i> Splunk</span>
+                            <span><i class="fas fa-eye icon-wazuh"></i> Wazuh</span>
+                            <span><i class="fas fa-user-secret icon-burp"></i> Burp Suite</span>
+                            <span><i class="fas fa-fingerprint icon-forensics"></i> Digital Forensics</span>
+                            <span><i class="fas fa-users-cog icon-ad"></i> Active Directory</span>
+                            <span><i class="fas fa-project-diagram icon-soc"></i> SOC Operations</span>
+                            <span><i class="fas fa-globe icon-osint"></i> OSINT</span>
+                            <span><i class="fas fa-network-wired icon-netsec"></i> Network Security</span>
                         </div>
                     </div>
+
                     <div class="skill-category reveal">
                         <div class="category-title">
-                            <i class="fas fa-server"></i>
+                            <i class="fas fa-brain icon-ai"></i>
+                            <h3>Artificial Intelligence & Data Science</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span><i class="fas fa-robot icon-ml"></i> Machine Learning</span>
+                            <span><i class="fas fa-link icon-langchain"></i> LangChain</span>
+                            <span><i class="fas fa-database icon-chroma"></i> ChromaDB</span>
+                            <span><i class="fas fa-chart-line icon-numpy"></i> NumPy</span>
+                            <span><i class="fas fa-table icon-pandas"></i> Pandas</span>
+                            <span><i class="fas fa-chart-bar icon-matplotlib"></i> Matplotlib</span>
+                            <span><i class="fas fa-play icon-streamlit"></i> Streamlit</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category reveal">
+                        <div class="category-title">
+                            <i class="fas fa-server icon-backend"></i>
                             <h3>Backend & Systems</h3>
                         </div>
                         <div class="skill-tags">
-                            <span><i class="fab fa-node-js"></i> Node.js</span>
-                            <span><i class="fas fa-plug"></i> API Development</span>
-                            <span><i class="fas fa-database"></i> Database Design</span>
-                            <span><i class="fas fa-stream"></i> Security Data Processing</span>
-                            <span><i class="fab fa-node-js"></i> Express.js</span>
-                            <span><i class="fas fa-exchange-alt"></i> REST APIs</span>
+                            <span><i class="fab fa-node-js icon-node"></i> Node.js</span>
+                            <span><i class="fas fa-plug icon-api"></i> API Development</span>
+                            <span><i class="fas fa-database icon-postgres"></i> Database Design</span>
+                            <span><i class="fas fa-stream icon-forensics"></i> Security Data Processing</span>
+                            <span><i class="fab fa-node-js icon-express"></i> Express.js</span>
+                            <span><i class="fas fa-exchange-alt icon-api"></i> REST APIs</span>
                         </div>
                     </div>
+
+                    <!-- Row 2 -->
                     <div class="skill-category reveal">
                         <div class="category-title">
-                            <i class="fas fa-code"></i>
+                            <i class="fas fa-laptop-code icon-dev"></i>
                             <h3>Development & UI</h3>
                         </div>
                         <div class="skill-tags">
-                            <span><i class="fab fa-python"></i> Python</span>
-                            <span><i class="fab fa-java"></i> Java</span>
-                            <span><i class="fab fa-js"></i> JavaScript</span>
-                            <span><i class="fab fa-php"></i> PHP</span>
-                            <span><i class="fab fa-css3-alt"></i> CSS3</span>
-                            <span><i class="fab fa-html5"></i> HTML5</span>
+                            <span><i class="fab fa-python icon-python"></i> Python</span>
+                            <span><i class="fab fa-java icon-java"></i> Java</span>
+                            <span><i class="fab fa-js icon-js"></i> JavaScript</span>
+                            <span><i class="fab fa-php icon-php"></i> PHP</span>
+                            <span><i class="fab fa-css3-alt icon-css"></i> CSS3</span>
+                            <span><i class="fab fa-html5 icon-html"></i> HTML5</span>
                         </div>
                     </div>
+
                     <div class="skill-category reveal">
                         <div class="category-title">
-                            <i class="fas fa-tools"></i>
+                            <i class="fas fa-tools icon-tools"></i>
                             <h3>Tools & Platforms</h3>
                         </div>
                         <div class="skill-tags">
-                            <span><i class="fas fa-search-plus"></i> Wireshark</span>
-                            <span><i class="fab fa-git-alt"></i> Git</span>
-                            <span><i class="fab fa-linux"></i> Linux</span>
-                            <span><i class="fab fa-windows"></i> Windows</span>
-                            <span><i class="fab fa-docker"></i> Docker</span>
-                            <span><i class="fas fa-camera"></i> OpenCV</span>
+                            <span><i class="fas fa-search-plus icon-wireshark"></i> Wireshark</span>
+                            <span><i class="fab fa-git-alt icon-git"></i> Git</span>
+                            <span><i class="fab fa-linux icon-linux"></i> Linux</span>
+                            <span><i class="fab fa-windows icon-windows"></i> Windows</span>
+                            <span><i class="fab fa-docker icon-docker"></i> Docker</span>
+                            <span><i class="fas fa-camera icon-opencv"></i> OpenCV</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category reveal">
+                        <div class="category-title">
+                            <i class="fas fa-database icon-db-manage"></i>
+                            <h3>Database Management</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span><i class="fas fa-database icon-postgres"></i> PostgreSQL</span>
+                            <span><i class="fas fa-database icon-mysql"></i> MySQL</span>
+                        </div>
+                    </div>
+
+                    <!-- Row 3 -->
+                    <div class="skill-category reveal">
+                        <div class="category-title">
+                            <i class="fas fa-vial icon-testing"></i>
+                            <h3>API Documentation & Testing</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span><i class="fas fa-paper-plane icon-postman"></i> Postman</span>
+                            <span><i class="fas fa-book icon-swagger"></i> Swagger</span>
                         </div>
                     </div>
                 </div>
@@ -287,49 +370,59 @@
                 </div>
                 <div class="projects-grid">
                     <!-- Project: TwishhSync -->
-                    <div class="project-card reveal">
+                    <div class="project-card reveal" data-project="TwishhSync">
                         <div class="project-image">
-                            <img src="twishh_sync_project.png" alt="TwishhSync Attendance System">
+                            <img src="assets/images/twishh_sync_project.png" alt="TwishhSync Attendance System">
                         </div>
                         <div class="project-info">
-                            <h3>TwishhSync | Next-Gen Attendance</h3>
-                            <p>Enterprise-grade attendance management system with real-time tracking and zero-trust workspace provisioning.</p>
+                            <h3>TwishhSync</h3>
+                            <p class="project-subtitle">Enterprise Attendance System</p>
+                            <!-- Hidden content for modal -->
+                            <p class="modal-desc">Enterprise-grade attendance management system with real-time tracking and zero-trust workspace provisioning.</p>
                             <div class="project-tags">
                                 <span>React</span>
                                 <span>Tailwind CSS</span>
                                 <span>Next.js</span>
                             </div>
                             <div class="project-links">
-                                <a href="https://attendance-system-gamma-ecru.vercel.app/" target="_blank" class="btn-project magnetic">Visit Project</a>
+                                <a href="https://attendance-system-gamma-ecru.vercel.app/" target="_blank" class="direct-visit magnetic">
+                                    Visit Project <i class="fas fa-external-link-alt"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
                     <!-- Project: D.K. Techno -->
-                    <div class="project-card reveal">
+                    <div class="project-card reveal" data-project="D.K. Techno">
                         <div class="project-image">
-                            <img src="dk_techno_project.png" alt="D.K. Techno Industries">
+                            <img src="assets/images/dk_techno_project.png" alt="D.K. Techno Industries">
                         </div>
                         <div class="project-info">
-                            <h3>D.K. Techno Industries</h3>
-                            <p>Industrial portfolio showcasing precision manufacturing, fabrication, and high-quality machining services.</p>
+                            <h3>D.K. Techno</h3>
+                            <p class="project-subtitle">Industrial Manufacturing Portfolio</p>
+                            <!-- Hidden content for modal -->
+                            <p class="modal-desc">Industrial portfolio showcasing precision manufacturing, fabrication, and high-quality machining services.</p>
                             <div class="project-tags">
                                 <span>React</span>
                                 <span>Next.js</span>
                                 <span>Industrial UI</span>
                             </div>
                             <div class="project-links">
-                                <a href="https://www.dktechnoindustries.com/" target="_blank" class="btn-project magnetic">Visit Project</a>
+                                <a href="https://www.dktechnoindustries.com/" target="_blank" class="direct-visit magnetic">
+                                    Visit Project <i class="fas fa-external-link-alt"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
-                    <!-- Project 1 -->
-                    <div class="project-card reveal">
+                    <!-- Project: Wazuh SIEM -->
+                    <div class="project-card reveal" data-project="Wazuh SIEM">
                         <div class="project-image">
-                            <img src="wazuh_project.png" alt="Wazuh SIEM Implementation">
+                            <img src="assets/images/wazuh_project.png" alt="Wazuh SIEM Implementation">
                         </div>
                         <div class="project-info">
-                            <h3>Wazuh SIEM Implementation</h3>
-                            <p>Centralized security monitoring and log analysis using Wazuh for threat detection and compliance.</p>
+                            <h3>Wazuh SIEM</h3>
+                            <p class="project-subtitle">Security Information & Event Management</p>
+                            <!-- Hidden content for modal -->
+                            <p class="modal-desc">Centralized security monitoring and log analysis using Wazuh for threat detection and compliance.</p>
                             <div class="project-tags">
                                 <span>SIEM</span>
                                 <span>SOC Workflows</span>
@@ -337,14 +430,16 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Project 2 -->
-                    <div class="project-card reveal">
+                    <!-- Project: Driver Assistance -->
+                    <div class="project-card reveal" data-project="Driver Assistance">
                         <div class="project-image">
-                            <img src="driver_assistance_project.png" alt="AI Driver Assistance">
+                            <img src="assets/images/driver_assistance_project.png" alt="AI Driver Assistance">
                         </div>
                         <div class="project-info">
-                            <h3>AI Driver Assistance System</h3>
-                            <p>Python-based real-time object detection and driver alerting system for enhanced road safety.</p>
+                            <h3>Driver Assistance</h3>
+                            <p class="project-subtitle">AI Computer Vision System</p>
+                            <!-- Hidden content for modal -->
+                            <p class="modal-desc">Python-based real-time object detection and driver alerting system for enhanced road safety.</p>
                             <div class="project-tags">
                                 <span>Python</span>
                                 <span>OpenCV</span>
@@ -352,14 +447,16 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Project 3 -->
-                    <div class="project-card reveal">
+                    <!-- Project: OSINT -->
+                    <div class="project-card reveal" data-project="OSINT">
                         <div class="project-image">
-                            <img src="osint_project.png" alt="OSINT Digital Footprinting">
+                            <img src="assets/images/osint_project.png" alt="OSINT Digital Footprinting">
                         </div>
                         <div class="project-info">
-                            <h3>OSINT Digital Footprinting</h3>
-                            <p>Automated intelligence gathering for identifying digital footprints and potential attack surfaces.</p>
+                            <h3>OSINT Audit</h3>
+                            <p class="project-subtitle">Open Source Intelligence Tooling</p>
+                            <!-- Hidden content for modal -->
+                            <p class="modal-desc">Automated intelligence gathering for identifying digital footprints and potential attack surfaces.</p>
                             <div class="project-tags">
                                 <span>OSINT</span>
                                 <span>Investigation</span>
@@ -374,75 +471,67 @@
         <!-- Contact Section -->
         <section id="contact">
             <div class="container">
-                <div class="section-header">
-                    <h2>Let's Connect</h2>
-                </div>
-                <div class="contact-grid">
-                    <div class="contact-card reveal">
-                        <div class="contact-header">
-                            <span class="subtitle">Get in Touch</span>
-                            <h2>Let's build something secure together</h2>
-                            <p>I'm currently looking for new opportunities and collaborations in Cybersecurity and AI. Whether you have a question or just want to say hi, my inbox is always open!</p>
-                        </div>
-                        
-                        <div class="contact-methods">
-                            <a href="mailto:palppatel27@gmail.com" class="contact-method-card magnetic reveal">
-                                <div class="method-icon">
-                                    <i class="fas fa-envelope"></i>
-                                </div>
-                                <div class="method-info">
-                                    <span>Email</span>
-                                    <p>palppatel27@gmail.com</p>
-                                </div>
-                                <div class="method-arrow">
-                                    <i class="fas fa-arrow-right"></i>
-                                </div>
-                            </a>
+                <div class="contact-card reveal">
+                    <div class="contact-header">
+                        <span class="subtitle">Secure Transmission</span>
+                        <h2>Let's Connect</h2>
+                        <p>I'm currently looking for new opportunities and collaborations in Cybersecurity and AI. Whether you have a question or just want to say hi, my inbox is always open!</p>
+                    </div>
 
-                            <a href="https://www.linkedin.com/in/palpatel27" target="_blank" class="contact-method-card magnetic reveal">
-                                <div class="method-icon">
-                                    <i class="fab fa-linkedin"></i>
-                                </div>
-                                <div class="method-info">
-                                    <span>LinkedIn</span>
-                                    <p>palppatel27</p>
-                                </div>
-                                <div class="method-arrow">
-                                    <i class="fas fa-arrow-right"></i>
-                                </div>
-                            </a>
+                    <div class="contact-methods">
+                        <a href="mailto:palpatel276@gmail.com" class="contact-method-card magnetic reveal" style="--icon-color: #ff4d4d;">
+                            <div class="method-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="method-info">
+                                <span>Email</span>
+                            </div>
+                        </a>
 
-                            <a href="https://wa.me/918805132884" target="_blank" class="contact-method-card magnetic reveal">
-                                <div class="method-icon">
-                                    <i class="fab fa-whatsapp"></i>
-                                </div>
-                                <div class="method-info">
-                                    <span>WhatsApp</span>
-                                    <p>Connect on Chat</p>
-                                </div>
-                                <div class="method-arrow">
-                                    <i class="fas fa-arrow-right"></i>
-                                </div>
-                            </a>
+                        <a href="tel:+918805132884" class="contact-method-card magnetic reveal" style="--icon-color: #00d2ff;">
+                            <div class="method-icon"><i class="fas fa-phone"></i></div>
+                            <div class="method-info">
+                                <span>Phone</span>
+                            </div>
+                        </a>
 
-                            <a href="tel:+918805132884" class="contact-method-card magnetic reveal">
-                                <div class="method-icon">
-                                    <i class="fas fa-phone"></i>
-                                </div>
-                                <div class="method-info">
-                                    <span>Phone</span>
-                                    <p>+91 88051 32884</p>
-                                </div>
-                                <div class="method-arrow">
-                                    <i class="fas fa-arrow-right"></i>
-                                </div>
-                            </a>
-                        </div>
+                        <a href="https://wa.me/918805132884" target="_blank" class="contact-method-card magnetic reveal" style="--icon-color: #25d366;">
+                            <div class="method-icon"><i class="fab fa-whatsapp"></i></div>
+                            <div class="method-info">
+                                <span>WhatsApp</span>
+                            </div>
+                        </a>
+
+                        <a href="https://linkedin.com/in/palpatel27" target="_blank" class="contact-method-card magnetic reveal" style="--icon-color: #0077b5;">
+                            <div class="method-icon"><i class="fab fa-linkedin"></i></div>
+                            <div class="method-info">
+                                <span>LinkedIn</span>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
     </main>
+
+    <!-- Project Details Modal -->
+    <div class="project-modal" id="project-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+            <button class="modal-close" id="modal-close"><i class="fas fa-times"></i></button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-subtitle" id="modal-subtitle">SECURITY_PROTOCOL_v1.0</span>
+                    <h2 id="modal-title">Project Title</h2>
+                    <div class="modal-tech-stack" id="modal-tech"></div>
+                </div>
+                <div class="modal-body">
+                    <ul id="modal-details"></ul>
+                </div>
+                <!-- Link removed as per request to have it on the card instead -->
+            </div>
+        </div>
+    </div>
+
+
 
     <!-- Live Threat Feed -->
     <div class="threat-feed reveal">
