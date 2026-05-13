@@ -1746,7 +1746,7 @@ body.light-mode .orb {
         height: 100%;
         background: var(--gradient-main);
         display: block !important;
-        z-index: 1;
+        z-index: 0; /* Background layer */
     }
 
     .timeline-item {
@@ -1772,9 +1772,10 @@ body.light-mode .orb {
         width: 40px;
         height: 40px;
         font-size: 0.7rem;
-        z-index: 5;
+        z-index: 10; /* Forefront */
         transform: none !important;
         background: var(--bg-secondary);
+        box-shadow: 0 0 20px rgba(0, 210, 255, 0.2);
     }
 
     .timeline-content {
@@ -1783,6 +1784,7 @@ body.light-mode .orb {
         left: 0 !important;
         right: 0 !important;
         text-align: left !important;
+        z-index: 5; /* Above the line */
     }
 
     #contact {
